@@ -10,4 +10,6 @@ fs.open('./data/app.log', (err, fd) => {
 			console.log(buff.toString())
 		})
 	}
+
+	fs.close(fd)
 })

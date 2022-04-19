@@ -1,5 +1,5 @@
 const { convertCsv } = require('./csv.parse')
-const { open, read } = require('fs')
+const { open, read, close } = require('fs')
 
 open('./data/pulitzer-circulation-data.csv', (err, fd) => {
 	if (err) {
@@ -11,4 +11,6 @@ open('./data/pulitzer-circulation-data.csv', (err, fd) => {
 	read(fd, buffer, 0, buffer.length, 0, (err, count, buff) => {
 		console.table(convertCsv(buff.toString()))
 	})
+
+	close(fd)
 })

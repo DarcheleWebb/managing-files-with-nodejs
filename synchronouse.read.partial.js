@@ -10,3 +10,5 @@ do {
 
 	console.log(buffer.toString())
 } while (count > 0)
+
+fs.close(fd)
